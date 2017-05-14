@@ -51,11 +51,11 @@
 		EE93B0CE188769340083AEB2 /* VerticallyCenteredTextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = EE93B0CD188769340083AEB2 /* VerticallyCenteredTextFieldCell.m */; };
 		EE94CC71189FB9FB0052B631 /* Sparkle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE94CC70189FB9FB0052B631 /* Sparkle.framework */; };
 		EE94CC73189FBA010052B631 /* UniversalDetector.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EE94CC72189FBA010052B631 /* UniversalDetector.framework */; };
-		EE94CC74189FBA0E0052B631 /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = EE94CC70189FB9FB0052B631 /* Sparkle.framework */; };
-		EE94CC75189FBA140052B631 /* UniversalDetector.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = EE94CC72189FBA010052B631 /* UniversalDetector.framework */; };
+		EE94CC74189FBA0E0052B631 /* Sparkle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = EE94CC70189FB9FB0052B631 /* Sparkle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
+		EE94CC75189FBA140052B631 /* UniversalDetector.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = EE94CC72189FBA010052B631 /* UniversalDetector.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		EE9A2552189A2B13006FE02D /* dsa_pub.pem in Resources */ = {isa = PBXBuildFile; fileRef = EE9A2551189A2B13006FE02D /* dsa_pub.pem */; };
 		EE9AF61918991ACB00CD2728 /* PDFPageToImage.m in Sources */ = {isa = PBXBuildFile; fileRef = EE9AF61818991ACB00CD2728 /* PDFPageToImage.m */; };
-		EECEFEAA1893502D002B39E1 /* XADMaster.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = EE11DE931892BFC700E7AEC4 /* XADMaster.framework */; };
+		EECEFEAA1893502D002B39E1 /* XADMaster.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = EE11DE931892BFC700E7AEC4 /* XADMaster.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, ); }; };
 		EEE1ACA21881391900DF025B /* README for Mangao Kai(JP).txt in Resources */ = {isa = PBXBuildFile; fileRef = EEE1ACA11881391900DF025B /* README for Mangao Kai(JP).txt */; };
 		EEE1ACA41881391F00DF025B /* README for Mangao Kai.md in Resources */ = {isa = PBXBuildFile; fileRef = EEE1ACA31881391F00DF025B /* README for Mangao Kai.md */; };
 /* End PBXBuildFile section */
@@ -389,7 +389,7 @@
 		CE8EE211177B9E7E00F7AB80 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0500;
+				LastUpgradeCheck = 0830;
 			};
 			buildConfigurationList = CE8EE214177B9E7E00F7AB80 /* Build configuration list for PBXProject "Mangao" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -495,18 +495,25 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
@@ -515,16 +522,18 @@
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.5;
-				ONLY_ACTIVE_ARCH = NO;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_CPLUSPLUSFLAGS = (
 					"$(OTHER_CFLAGS)",
 					"-DSILENT",
 					"-DRARDLL",
 				);
-				SDKROOT = macosx10.8;
+				SDKROOT = macosx;
 			};
 			name = Debug;
 		};
@@ -532,36 +541,43 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.5;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				OTHER_CPLUSPLUSFLAGS = (
 					"$(OTHER_CFLAGS)",
 					"-DSILENT",
 					"-DRARDLL",
 				);
-				SDKROOT = macosx10.8;
+				SDKROOT = macosx;
 			};
 			name = Release;
 		};
 		CE8EE237177B9E7E00F7AB80 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
 				CLANG_CXX_LIBRARY = "compiler-default";
 				COMBINE_HIDPI_IMAGES = YES;
@@ -575,9 +591,10 @@
 				GCC_PREPROCESSOR_DEFINITIONS = USE_FILE32API;
 				INFOPLIST_FILE = "Mangao/Mangao-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_BUNDLE_IDENTIFIER = com.djhan.MangaoKai;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx10.8;
+				SDKROOT = macosx;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -585,7 +602,6 @@
 		CE8EE238177B9E7E00F7AB80 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
 				CLANG_CXX_LANGUAGE_STANDARD = "compiler-default";
 				CLANG_CXX_LIBRARY = "compiler-default";
 				COMBINE_HIDPI_IMAGES = YES;
@@ -599,9 +615,10 @@
 				GCC_PREPROCESSOR_DEFINITIONS = USE_FILE32API;
 				INFOPLIST_FILE = "Mangao/Mangao-Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "@loader_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				PRODUCT_BUNDLE_IDENTIFIER = com.djhan.MangaoKai;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx10.8;
+				SDKROOT = macosx;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
